@@ -48,14 +48,18 @@ public class Topic8Exercises {
         String[] passwordsArray = {"oxymoran", "poxedfox", "kingfisher","cruiseshipper"};
         String userName = JOptionPane.showInputDialog("Please enter password");
         boolean passwordFound = false;
+
         for(String passwords: passwordsArray){
             if(passwords.equals(userName)){
-                JOptionPane.showMessageDialog(null,"Log-On Successful");
-                passwordFound = true;
-                break;}
+               JOptionPane.showMessageDialog(null,"Log-On Successful");
+               passwordFound = true;
+               break;
             }
+        }
+
         if(!passwordFound)
-            System.out.print("\"You cannot be logged on using the specified password.\"");}
+        System.out.print("\"You cannot be logged on using the specified password.\"");
+    }
 
      public void JFT8Ex11(){
         char[] responsesArray = {'N','Y','Y','Y','Y','Y','N','Y','N','N'};

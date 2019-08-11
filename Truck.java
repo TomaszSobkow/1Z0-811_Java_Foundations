@@ -6,9 +6,7 @@ private boolean isTriler;
 		super(manufacturer, engineSize, registrationNumber, NCT);
 }
 	public Truck(String manufacturer, float engineSize, String registrationNumber){
-		manufacturer = manufacturer;
-		engineSize = engineSize;
-		registrationNumber = registrationNumber;
+		super(manufacturer, engineSize, registrationNumber);
 	}
 	
 	public Truck(String manufacturer, float engineSize){
@@ -25,7 +23,10 @@ private boolean isTriler;
 		return "\nTruck braking...";
 	}
 
-public void setIsTriler(boolean isTriler){this.isTriler = isTriler;}
+public void setIsTriler(boolean isTriler){
+		this.isTriler = isTriler;}
+
+
 public boolean getIsTriler(){return isTriler;}
 
 @Override

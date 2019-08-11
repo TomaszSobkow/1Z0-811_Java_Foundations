@@ -1,39 +1,116 @@
+import org.omg.CORBA.MARSHAL;
+
+import java.io.*;
 import java.util.ArrayList;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 
-class Tomasz{
+class Humann{
+    private String gender;
+    private String ethnicity;
+    private int age;
+    private String firstName;
+    private String lastName;
 
-    public String toString(){
-    return "Cat";
+    public Humann(String gender, String ethnicity, int age, String firstName, String lastName){
+        gender = gender;
+        this.ethnicity = ethnicity;
+        this.age = age;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Humann(String gender, String ethnicity, int age, String firstName){
+        this(gender, ethnicity,age,firstName,"Not Specified");
+    }
+
+    public Humann(){}
+
+   public String toString(){
+       return "Gender: " +gender+ "\nEthnicyty: " +ethnicity+ "\nAge: "+age+ "\nFirst NAME: "+firstName+"\nLast NAME: "+lastName;
+     }
+
+     String famousFive[] = new String [] {"Timmy","Julian", "Dick","George","Ann", null};
+        void printArray(){
+            for(String o: famousFive)
+                System.out.print(o+" ");
+        }
 }
+
+class Customer{
+    private static int noOfCustomers;
+    public Customer(){
+        Customer.noOfCustomers++;
+    }
+
+    public static int getNoOfCustomers(){
+        return Customer.noOfCustomers;
+    }
+
 }
+
+class Cat {
+    String name;
+    int age;
+
+    public Cat() {
+    }
+
+    public Cat(String s, int age) {
+        this.name = s;
+        this.age = age;
+    }
+
+    public String toString() {
+        return name;
+    }
+
+    public String catDetails() {
+        return "NAME: " + name + "\nAGE: " + age;
+    }
+
+
+    ArrayList cats = new ArrayList();
+
+    void catsInArray() {
+        Cat tom = new Cat("Tomaszek", 12);
+        Cat aga = new Cat("Aga", 67);
+        Cat alex = new Cat("Alex", 45);
+
+        cats.add(tom);
+        cats.add(aga);
+        cats.add(alex);
+        printAllCats();
+    }
+
+
+    void printAllCats() {
+        System.out.print("Cats: ");
+        for (Object cat : cats)
+            System.out.print(cat + " ");
+    }
+}
+
+
 
 
 public class Main{
 
 
+   }
 
 
-public static void main(String args[]) {
-    ArrayList al = new ArrayList();
-
-    al.add(new String("Sandy"));
-    al.add('1');
-    al.add("Raymond");
-    al.add(new Tomasz());
-
-    Iterator iterator = al.iterator();
-
-    while(iterator.hasNext()){
-        Object element = iterator.next();
-        System.out.println(element + " ");
-    }
 
 
-    }
+
+
+
+
+
+
+
+
+
+
 
 
 //		IteratorTest iteratorTest = new IteratorTest();
