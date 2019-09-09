@@ -12,11 +12,9 @@ private boolean isTriler;
 	public Truck(String manufacturer, float engineSize){
 		this(manufacturer,engineSize,"Truck regNO",false);
 	}
-	
 	public Truck(String manufacturer){ 
 			this(manufacturer,0.0f, "Truck RegNo",false);
 	}
-
 	public Truck(){}
 	
 	public String brake(){

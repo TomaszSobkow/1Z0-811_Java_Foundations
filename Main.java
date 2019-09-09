@@ -1,112 +1,63 @@
-import org.omg.CORBA.MARSHAL;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.Scanner;
 
-class Humann{
-    private String gender;
-    private String ethnicity;
-    private int age;
-    private String firstName;
-    private String lastName;
-
-    public Humann(String gender, String ethnicity, int age, String firstName, String lastName){
-        gender = gender;
-        this.ethnicity = ethnicity;
-        this.age = age;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Humann(String gender, String ethnicity, int age, String firstName){
-        this(gender, ethnicity,age,firstName,"Not Specified");
-    }
-
-    public Humann(){}
-
-   public String toString(){
-       return "Gender: " +gender+ "\nEthnicyty: " +ethnicity+ "\nAge: "+age+ "\nFirst NAME: "+firstName+"\nLast NAME: "+lastName;
-     }
-
-     String famousFive[] = new String [] {"Timmy","Julian", "Dick","George","Ann", null};
-        void printArray(){
-            for(String o: famousFive)
-                System.out.print(o+" ");
-        }
-}
-
-class Customer{
-    private static int noOfCustomers;
-    public Customer(){
-        Customer.noOfCustomers++;
-    }
-
-    public static int getNoOfCustomers(){
-        return Customer.noOfCustomers;
-    }
+class TestWriteFile{
 
 }
+    public class Main{
+    private   String fileName;
+    File file1;
 
-class Cat {
-    String name;
-    int age;
-
-    public Cat() {
-    }
-
-    public Cat(String s, int age) {
-        this.name = s;
-        this.age = age;
-    }
-
-    public String toString() {
-        return name;
-    }
-
-    public String catDetails() {
-        return "NAME: " + name + "\nAGE: " + age;
-    }
-
-
-    ArrayList cats = new ArrayList();
-
-    void catsInArray() {
-        Cat tom = new Cat("Tomaszek", 12);
-        Cat aga = new Cat("Aga", 67);
-        Cat alex = new Cat("Alex", 45);
-
-        cats.add(tom);
-        cats.add(aga);
-        cats.add(alex);
-        printAllCats();
-    }
-
-
-    void printAllCats() {
-        System.out.print("Cats: ");
-        for (Object cat : cats)
-            System.out.print(cat + " ");
-    }
-}
-
-
-
-
-public class Main{
-
-
+   public static void main(String[] args){
+       Main temp = new Main();
+       temp.createFile();
+       temp.writeToFile();
+       temp.readFile();
    }
 
+   public  Object createFile(){
+       System.out.print("Please enter file name to create: ");
+       Scanner input = new Scanner(System.in);
+       fileName = input.nextLine();
+       file1 = new File("C:\\Users\\Tomek\\Documents\\JAVA course eCollege\\Projects\\eCollege\\src\\Created_Files\\" + fileName + ".txt");
+       return file1;
+   }
 
+    public  void writeToFile(){
+       String toWrite = "Czesc Tomcio Nowa lokalizacja";
 
+        try{
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file1,true)));
+//            FileWriter fw = new FileWriter(file1,true);
+//            BufferedWriter bw = new BufferedWriter(fw);
+//            PrintWriter pw = new PrintWriter(bw);
+//            pw.println(toWrite.length());
+            out.println(toWrite+",");
+            System.out.println("Message \""+toWrite+"\" has been writen to file name "+fileName+".txt");
+            out.close();
+//            pw.close();
+     }
+        catch (IOException io){
+            System.out.println("Problem with create file");
 
+        }
+   }
 
+   public void readFile(){
 
+       try {
+            BufferedReader readOut = new BufferedReader(new FileReader(file1));
 
+            String line = readOut.readLine();
+      while (line !=null){
+          System.out.println(line);
+          line = readOut.readLine();
+      }
+      System.out.println("The contents of the file \""+fileName+".txt has been corectly read");
+       }catch (IOException oe){
 
-
-
+       }
+   }
 
 
 
