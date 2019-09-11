@@ -1,63 +1,123 @@
+import com.sun.javaws.IconUtil;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
-class TestWriteFile{
+class Date{
+    int month, day, year;
+
+    public Date(int day, int month, int year){
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+
+    public Date(){
+        this.day = 0;
+        this.month = 0;
+        this.year = 0;
+    }
+
+    public String  toString(){
+        return "Day: "+day+"\nMonth: "+month+"\nYear: "+year;
+    }
 
 }
+
     public class Main{
-    private   String fileName;
-    File file1;
+    private String userLogin, userPassword, town, country;
+    private int phoneNumber;
 
-   public static void main(String[] args){
-       Main temp = new Main();
-       temp.createFile();
-       temp.writeToFile();
-       temp.readFile();
+
+
+   public static void main(String[] args) {
+
+//       Main user = new Main();
+//       user.writeUserData();
+//      user.readUsersFile();
+//       user.readPasswordsFile();
+//       user.readAddressFile();
+
    }
+        FileWriter passwordFile, usersFile, addressFile;
 
-   public  Object createFile(){
-       System.out.print("Please enter file name to create: ");
-       Scanner input = new Scanner(System.in);
-       fileName = input.nextLine();
-       file1 = new File("C:\\Users\\Tomek\\Documents\\JAVA course eCollege\\Projects\\eCollege\\src\\Created_Files\\" + fileName + ".txt");
-       return file1;
-   }
-
-    public  void writeToFile(){
-       String toWrite = "Czesc Tomcio Nowa lokalizacja";
-
+    public  void writeUserData()  {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter Login: ");
+        userLogin  = input.nextLine();
+        System.out.print("Password: ");
+        userPassword  = input.nextLine();
+        System.out.print("Town: ");
+        town = input.nextLine();
+        System.out.print("Country: ");
+        country = input.nextLine();
         try{
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file1,true)));
-//            FileWriter fw = new FileWriter(file1,true);
-//            BufferedWriter bw = new BufferedWriter(fw);
-//            PrintWriter pw = new PrintWriter(bw);
-//            pw.println(toWrite.length());
-            out.println(toWrite+",");
-            System.out.println("Message \""+toWrite+"\" has been writen to file name "+fileName+".txt");
-            out.close();
-//            pw.close();
-     }
-        catch (IOException io){
-            System.out.println("Problem with create file");
+            System.out.print("Phone number: ");
+            phoneNumber = input.nextInt();
 
+            passwordFile = new FileWriter("UsersPasswords.txt",true);
+            usersFile = new FileWriter("UsersLogin.txt",true);
+            addressFile = new FileWriter("UsersAddresses.txt",true);
+            passwordFile.write(userPassword+",");
+            usersFile.write(userLogin+",");
+            addressFile.write(town+",");
+            addressFile.write(country+",");
+            usersFile.close();
+            passwordFile.close();
+            addressFile.close();
+
+        }catch (IOException ex){
+            System.out.println("Problem with write to  file");
+        }catch (NullPointerException np){
+            System.out.println("File was not writen");
+        }catch (InputMismatchException im){
+            System.out.println("Please enter only digit please ");
         }
    }
 
-   public void readFile(){
-
+   public void readPasswordsFile(){
        try {
-            BufferedReader readOut = new BufferedReader(new FileReader(file1));
-
-            String line = readOut.readLine();
+            BufferedReader read = new BufferedReader(new FileReader("UsersPasswords.txt"));
+            String line = read.readLine();
       while (line !=null){
-          System.out.println(line);
-          line = readOut.readLine();
-      }
-      System.out.println("The contents of the file \""+fileName+".txt has been corectly read");
+          System.out.println("Password: "+line);
+          line = read.readLine();
+          }
        }catch (IOException oe){
-
+        System.out.println("Password file was not read");
        }
    }
+        public void readUsersFile(){
+            try {
+                BufferedReader read = new BufferedReader(new FileReader("UsersLogin.txt"));
+                String line = read.readLine();
+                while (line !=null){
+                    System.out.println("User: "+line);
+                    line = read.readLine();
+                }
+            }catch (IOException oe){
+                System.out.println("Users file was not read");
+            }
+        }
+
+        public void readAddressFile(){
+            try {
+                BufferedReader read = new BufferedReader(new FileReader("UsersAddresses.txt"));
+                String line = read.readLine();
+                while(line!=null){
+                    if(line == ","){
+                        continue;
+                    }
+                    System.out.println("Town: "+line);
+                    line = read.readLine();
+                }
+            }catch (IOException io){
+
+            }
+        }
 
 
 
