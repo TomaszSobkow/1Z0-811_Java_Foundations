@@ -1,10 +1,11 @@
-import com.sun.javaws.IconUtil;
 
+import org.omg.CORBA.INTERNAL;
+
+import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+
+import java.util.*;
+
 
 class Date{
     int month, day, year;
@@ -27,13 +28,97 @@ class Date{
 
 }
 
-    public class Main{
+class Exam{
+
+      public int arrayTEST() {
+        ArrayList list = new ArrayList();
+        list.add("Bananas");
+        list.add("Apples");
+        list.add("FileDescriptor");
+        list.add("Bred");
+          System.out.println(list.get(list.size()-1));
+
+           return 0;
+        }
+
+    }
+
+    class Question{
+
+    String letter = "Q";
+    }
+
+
+public class Main {
     private String userLogin, userPassword, town, country;
     private int phoneNumber;
 
+static boolean defaultBoolean;
+static int defaultInt;
+static double defaultDouble;
+static String defaultString;
+
+private static int inny;
 
 
-   public static void main(String[] args) {
+private static  final String lowercase= "2";
+
+   public static void main(String[] arg)  {
+    Random rnd = new Random();
+    if(rnd.nextBoolean())
+    {
+        System.out.println("Trarara is true");
+    }
+
+
+   }
+
+
+
+
+//       FileWriter pw = new FileWriter("UsersAddresses.txt", true);
+//       FileReader reader = new FileReader("UsersAddresses.txt");
+//       BufferedReader bufferedReader = new BufferedReader(reader);
+//
+//       try {
+//           String line = bufferedReader.readLine();
+//           if (line != null) {
+//               for (int i = 0; i < 1; i++) {
+//                   pw.write("\n" + line);
+//                   pw.close();
+//               }
+//               while (line != null) {
+//                   System.out.println(line);
+//                   line = bufferedReader.readLine();
+//
+//               }
+//
+//           } else {
+//               pw.write("dd");
+//               pw.close();
+//               line = bufferedReader.readLine();
+//               while (line != null) {
+//                   System.out.println(line);
+//                   line = bufferedReader.readLine();
+//               }
+//           }
+//       } catch (IOException e) {
+//           e.printStackTrace();
+//       }
+//       finally {
+//           System.out.println(" finaly always work");
+//       }
+//       }
+
+//       ArrayList<String> list = new ArrayList();
+//       list.add(new String("Tom"));
+//       list.add("Aga");
+//       list.add("Ben");
+//       list.add("Banana");
+//       list.clear();
+//       System.out.println(list.isEmpty());
+
+
 
 //       Main user = new Main();
 //       user.writeUserData();
@@ -41,7 +126,12 @@ class Date{
 //       user.readPasswordsFile();
 //       user.readAddressFile();
 
-   }
+
+
+        public static void test(){
+            System.out.println("true");
+            return;
+        }
         FileWriter passwordFile, usersFile, addressFile;
 
     public  void writeUserData()  {
@@ -70,7 +160,7 @@ class Date{
             addressFile.close();
 
         }catch (IOException ex){
-            System.out.println("Problem with write to  file");
+           System.out.println("Problem with write to  file");
         }catch (NullPointerException np){
             System.out.println("File was not writen");
         }catch (InputMismatchException im){
