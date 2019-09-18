@@ -1,9 +1,5 @@
 
-import org.omg.CORBA.INTERNAL;
-
-import javax.swing.*;
 import java.io.*;
-
 import java.util.*;
 
 
@@ -64,11 +60,12 @@ private static int inny;
 private static  final String lowercase= "2";
 
    public static void main(String[] arg)  {
-    Random rnd = new Random();
-    if(rnd.nextBoolean())
-    {
-        System.out.println("Trarara is true");
-    }
+
+       char i = '4';
+       int e = Character.getNumericValue(i);
+
+
+       System.out.println(Math.abs(e));
 
 
    }
