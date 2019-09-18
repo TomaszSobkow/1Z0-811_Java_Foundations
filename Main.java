@@ -61,11 +61,6 @@ private static  final String lowercase= "2";
 
    public static void main(String[] arg)  {
 
-       char i = '4';
-       int e = Character.getNumericValue(i);
-
-
-       System.out.println(Math.abs(e));
 
 
    }
