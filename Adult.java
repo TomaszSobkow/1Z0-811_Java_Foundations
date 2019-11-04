@@ -5,6 +5,12 @@ private String occupation;
 private boolean isMarried;
 private boolean isCarOwner;
 
+
+Adult(String name,String  ppsNo){
+	super(name);
+	this.ppsNo = ppsNo;
+};
+
 void setPPSnumber(String ppsNo) {this.ppsNo = ppsNo;}
 void setOcupation(String occupation){this.occupation = occupation;}
 void setIsmarried(boolean isMarried) {this.isMarried = isMarried;}
@@ -25,7 +31,7 @@ void procreate(){
 	
 
 public void tooString(){
-	super.tooString();
+	super.toString();
 	System.out.println("PPs No: "+ppsNo+"\nOccupation: "+occupation+
 					   "\nMarriage: "+isMarried+"\nCar ovner: "+isCarOwner);
 }

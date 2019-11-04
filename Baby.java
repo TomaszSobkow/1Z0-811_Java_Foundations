@@ -2,13 +2,16 @@ public class Baby extends Human{
 
 private boolean isTeething;
 
-
+Baby(String name, boolean isTeething){
+	super(name);
+	this.isTeething = isTeething;
+};
 void setIsTeething(boolean isTeething){this.isTeething = isTeething;}
 
 boolean getIsTeething(){return isTeething;}
 
 public void tooString(){
-	super.tooString();
+	super.toString();
 	System.out.println("Teething: "+isTeething);
 }
 void checkIsTeething(boolean isTeething){

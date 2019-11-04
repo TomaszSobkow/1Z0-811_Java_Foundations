@@ -1,6 +1,8 @@
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 class Date{
@@ -47,7 +49,7 @@ class Exam{
 
 public class Main {
     private String userLogin, userPassword, town, country;
-    private int phoneNumber;
+    private static int phoneNumber;
 
 static boolean defaultBoolean;
 static int defaultInt;
@@ -56,14 +58,55 @@ static String defaultString;
 
 private static int inny;
 
-
 private static  final String lowercase= "2";
 
-   public static void main(String[] arg)  {
+
+  public  static void main(String[] blabla)  {
+
+onlyInt_Max_Min();
+onlyIntBubble();
 
 
 
-   }
+  }
+  static int[] onlyIntArray = {12,45,67,-34,555,7890,325467,-2342,2563,235,234,-232,253,5652,-354,554,5675};
+
+  static void onlyIntPrint(){
+  for (int e: onlyIntArray)
+        System.out.print(e+",");
+  }
+
+  static void onlyInt_Max_Min(){
+     int min, max, sum;
+     sum = onlyIntArray[0];
+     min = max = onlyIntArray[0];
+     for (int i = 1; i < onlyIntArray.length; i++){
+          if(onlyIntArray[i] < min) min = onlyIntArray[i];
+          if(onlyIntArray[i] > max) max = onlyIntArray[i];
+          sum += onlyIntArray[i];
+      }
+        System.out.printf("Min %d\nMax %d\nNumbers in array %d\nSum %d%n", min, max, onlyIntArray.length, sum);
+        onlyIntPrint();
+    }
+
+    static void  onlyIntBubble(){
+      int a,b,c;
+      for(a = 1; a < onlyIntArray.length; a++)
+          for (b = onlyIntArray.length -1; b >= a; b-- ){
+              if(onlyIntArray[b-1] > onlyIntArray[b]){
+                  c = onlyIntArray[b - 1];
+                  onlyIntArray[b -1] = onlyIntArray[b];
+                  onlyIntArray[b] = c;
+              }
+          }
+        System.out.println("\n");
+      onlyIntPrint();
+    }
+
+
+
+
+
 
 
 

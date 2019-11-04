@@ -2,13 +2,18 @@ public class Child extends Human{
 
 private String schoolCardNo = "N/A";
 
-void setSchoolCardNo(String schoolCardNo){ this.schoolCardNo = schoolCardNo;}
+Child(String name, String schoolCardNo){
+	super(name);
+	this.schoolCardNo = schoolCardNo;
+}
+
+	void setSchoolCardNo(String schoolCardNo){ this.schoolCardNo = schoolCardNo;}
 		
 String getSchoolcardNo(){return schoolCardNo;}
 
-public void tooString(){
-	super.tooString();
-	System.out.println("School Card No: "+schoolCardNo);
+public String toString(){
+	super.toString();
+	return ("School Card No: "+schoolCardNo);
 }
 
 void swim(int age){
