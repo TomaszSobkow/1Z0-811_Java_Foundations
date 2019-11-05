@@ -4,8 +4,8 @@ public class Human{
 private String name = "Brak Danych";
 private String gender = name;
 private int age = 0;
-private float height = (float)age;
-private float weight = height;
+private float height = 0;
+private float weight = 0;
 
 Human(){};
 	Human(String gender){
