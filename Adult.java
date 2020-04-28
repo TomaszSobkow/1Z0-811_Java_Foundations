@@ -4,6 +4,7 @@ private String ppsNo;
 private String occupation;
 private boolean isMarried;
 private boolean isCarOwner;
+private int age;
 
 
 Adult(String name,String  ppsNo){
